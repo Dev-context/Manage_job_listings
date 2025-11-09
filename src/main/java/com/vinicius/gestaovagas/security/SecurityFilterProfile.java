@@ -27,6 +27,7 @@ public class SecurityFilterProfile extends OncePerRequestFilter {
             throws ServletException, IOException {
 
         String header = request.getHeader("Authorization");
+        System.out.println(header);
         if (request.getRequestURI().startsWith("/candidate")) {
             if (header != null) {
                 var token = this.candidateProvider.validateToken(header);
