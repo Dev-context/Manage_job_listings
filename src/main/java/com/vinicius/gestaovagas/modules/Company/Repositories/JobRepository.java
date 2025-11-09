@@ -9,6 +9,6 @@ import com.vinicius.gestaovagas.modules.Company.entities.JobEntity;
 
 public interface JobRepository extends JpaRepository<JobEntity, UUID> {
 
-    Optional<JobEntity> findByLevel(String level);
+    Optional<JobEntity> findByDescription(String level);
 
 }

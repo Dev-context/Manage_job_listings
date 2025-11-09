@@ -15,7 +15,7 @@ public class CreateJobUseCase {
 
     public JobEntity execute(JobEntity jobEntity) {
 
-        this.jobRepository.findByLevel(jobEntity.getLevel()).ifPresent(Job -> {
+        this.jobRepository.findByDescription(jobEntity.getDescription()).ifPresent(Job -> {
             throw new JobFoundException();
         });
 

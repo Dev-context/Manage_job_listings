@@ -1,11 +1,13 @@
 package com.vinicius.gestaovagas.modules.Company.Controler;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.vinicius.gestaovagas.modules.Company.UseCases.CreateCompanyUseCase;
 import com.vinicius.gestaovagas.modules.Company.entities.CompanyEntity;
 
@@ -18,7 +20,7 @@ public class CompanyController {
     @Autowired
     private CreateCompanyUseCase companyUseCase;
 
-    @RequestMapping("/")
+    @RequestMapping("")
     public ResponseEntity<Object> createCompany(@Valid @RequestBody CompanyEntity companyEntity) {
 
         try {
@@ -28,6 +30,12 @@ public class CompanyController {
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
+
+    }
+
+    @GetMapping("")
+    public List<CompanyEntity> getAll() {
+        return companyUseCase.findAll();
 
     }
 

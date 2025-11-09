@@ -11,4 +11,6 @@ public interface CompanyRepository extends JpaRepository<CompanyEntity, UUID> {
 
     Optional<CompanyEntity> findByUserNameOrEmail(String user_name, String email);
 
+    Optional<CompanyEntity> findByUserName(String user_name);
+
 }
